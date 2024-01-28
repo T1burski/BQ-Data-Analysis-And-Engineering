@@ -4,7 +4,7 @@ This project was developed to create a solution that extracts, using an API, dat
 
 Below, the ETL Diagram showing the solution as a whole:
 
-![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/0fe72888-cc9c-4c0b-942f-3b3a55d3c81e)
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/9dc9751a-9a74-432f-b78e-97fc24caefa6)
 
 The medallion architecture was adopted in order to have a data design pattern, maintaining organization and data quality to high standards.
 

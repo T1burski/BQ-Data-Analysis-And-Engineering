@@ -24,5 +24,39 @@ As stated before, we were given the challenge of extracting the data from the Io
 In order to be cost effective, GCP BigQuery was chosen as the cloud DW. Also, following best practices, the medallion architecture was adopted. Below, we will describe in details each layer of the data architecture, explaining their objectives and pipeline (inputs and outputs).
 
 ### 2.1) Bronze Layer: Raw Data
-This layer's data is ingested and built using the etl_bronze.py script. It receives the data from Iowa database using a SODA API
+This layer's data is ingested and built using the etl_bronze.py script. It receives the data from Iowa database using a SODA API adapted to only extract invoices made in the last 5 months (temporal threshold determined by the business) using a .json file which is converted to parquet using PySpark. Also, in this step of the ETL pipeline, we select the desired columns from the Iowa database:
+
+"invoice_line_no"
+
+"date"
+
+"store"
+
+"city"
+
+"county"
+
+"category"
+
+"category_name"
+
+"itemno"
+
+"im_desc"
+
+"sale_bottles"
+
+"sale_dollars"
+
+"sale_liters"
+
+The data is then loaded to our BigQuery DW using the db: db_iowa_liquorsales_bronze, naming the table as tb_sales_history. This loading process of the resulting parquet is done using "to_gbq" method. In the end, this layer (bronze) exists to store the data in a raw format, without any transformations like filtering and casting.
+
+### 2.2) Silver Layer: Filtered and Treated Data
+This layer's data is ingested from the bronze layer. There are two scripts that create one table each in this layer: etl_silver.py and etl_silver_regions.py. The first one processes the data from the table "db_iowa_liquorsales_bronze.tb_sales_history", applying casting and filtering actions in order to result in a clean table, making sure that eventual data flaws in the original source are not propagated into our BigQuery DW. The second script makes the one-time ingestion of a .csv table that contains the relation between Counties and their respective Regions in the state of Iowa. This is a static file since these relations are not meant to change overtime. In the end, this layer is represented by the db: db_iowa_liquorsales_silver, which will contain the two mentioned tables named as: tb_sales_history and tb_county_regions. In the end, this layer (silver) exists to store processed and filtered that ready to be processed and generate final tables which can be used by the final business user.
+
+### 2.3) Gold Layer: Business Level and Consuption Ready Data
+
+
+
 

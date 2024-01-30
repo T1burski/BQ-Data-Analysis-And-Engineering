@@ -55,7 +55,7 @@ The data is then loaded to our BigQuery DW using the db: db_iowa_liquorsales_bro
 ### 2.2) Silver Layer: Filtered and Treated Data
 This layer's data is ingested from the bronze layer. There are two scripts that create one table each in this layer: etl_silver.py and etl_silver_regions.py. The first one processes the data from the table "db_iowa_liquorsales_bronze.tb_sales_history", applying casting and filtering actions in order to result in a clean table, making sure that eventual data flaws in the original source are not propagated into our BigQuery DW. The second script makes the one-time ingestion of a .csv table that contains the relation between Counties and their respective Regions in the state of Iowa. This is a static file since these relations are not meant to change overtime. In the end, this layer is represented by the db: db_iowa_liquorsales_silver, which will contain the two mentioned tables named as: tb_sales_history and tb_county_regions. In the end, this layer (silver) exists to store processed and filtered that ready to be processed and generate final tables which can be used by the final business user.
 
-### 2.3) Gold Layer: Business Level and Consuption Ready Data
+### 2.3) Gold Layer: Business Level and Consumption Ready Data
 
 
 

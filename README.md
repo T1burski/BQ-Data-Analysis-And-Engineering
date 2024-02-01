@@ -56,7 +56,17 @@ The data is then loaded to our BigQuery DW using the db: db_iowa_liquorsales_bro
 This layer's data is ingested from the bronze layer. There are two scripts that create one table each in this layer: etl_silver.py and etl_silver_regions.py. The first one processes the data from the table "db_iowa_liquorsales_bronze.tb_sales_history", applying casting and filtering actions in order to result in a clean table, making sure that eventual data flaws in the original source are not propagated into our BigQuery DW. The second script makes the one-time ingestion of a .csv table that contains the relation between Counties and their respective Regions in the state of Iowa. This is a static file since these relations are not meant to change overtime. In the end, this layer is represented by the db: db_iowa_liquorsales_silver, which will contain the two mentioned tables named as: tb_sales_history and tb_county_regions. In the end, this layer (silver) exists to store processed and filtered that ready to be processed and generate final tables which can be used by the final business user.
 
 ### 2.3) Gold Layer: Business Level and Consumption Ready Data
+This layer's data is ingested from the silver layer and built with the script named etl_gold.py. The table loaded in this layer is adjusted to answer the business needs regarding information availability and is ready for user consumption (with BI tools such as Power BI, for example). In order to provide the necessary data structure, the following ETL process is performed: extract the tb_sales_history and the tb_county_regions tables from the silver layer, selecting only the desired columns from the tb_sales_history table and finally joining both tables using the county as a key in order to bring into the sales history the region of each county.
 
 
+## 3) The Pipeline
+The scripts must be executed in a specific order so that, with each data update, the ETL processes and layers do not break and the right updated data flows in the right sequence, maintaining data quality in each table. With that being said, the scripts must be executed in the following order:
+
+### etl_bronze.py -> etl_silver.py -> etl_gold.py
+
+while the etl_silver_regions.py script only runs once to populate the associated table with the static data needed.
+
+
+## 4) Google BigQuery: Checking and Analyzing the Data
 
 

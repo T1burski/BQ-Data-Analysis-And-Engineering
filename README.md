@@ -68,5 +68,36 @@ while the etl_silver_regions.py script only runs once to populate the associated
 
 
 ## 4) Google BigQuery: Checking and Analyzing the Data
+Below, we can see that our BigQuery DW is fully populated with the data mentioned before:
+
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/9d14b4c2-faea-4780-b143-03af464d653a)
+
+Let's try to build a SQL query to check out data in the gold layer:
+
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/d1bb0d29-8ab3-4034-a066-901c10029cf2)
+
+Nice! Now, let's build a little more complex query:
+
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/c751cba5-4ae7-4830-8f90-f432e1a5882d)
+
+Here, we calculated the total liquor volume and revenue per region, year and month.
+
+
+## 5) Business Intelligence: Power BI Connection
+We have our DW set up and ready for business use. Power BI has a connection type available for Google BigQuery. After accessing it, providing the necessary credentials, we can select our tables as shown below:
+
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/e7d56666-3c73-404b-8e5c-f2161ddf1179)
+
+Now, we develop the Power BI report, which will deliver, in a simple and fast way, the information our users requested, such as a time series of the revenue, the product categories with the highest revenues, the total revenue per Region and the stores that made the most sales regarding the number of invoices, also showing how much was the revenue per invoice, everything regarding the last 5 months of sales, not including the current month.
+
+The users also requested a way to export to Excel the data in tabular format. So, the Power BI with the mentioned features was created, and below we can see screenshots of the pages:
+
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/e33762bf-bd13-4629-998b-668ffbf92b12)
+
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/cb9e37bd-d28e-40b5-9ecf-2be7686ef80f)
+
+
+
+
 
 

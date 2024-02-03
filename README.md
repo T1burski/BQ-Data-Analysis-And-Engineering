@@ -9,9 +9,13 @@ Below, the ETL Diagram showing the solution as a whole:
 The medallion architecture was adopted in order to have a data design pattern, maintaining organization and data quality to high standards.
 
 Hadoop Version: 3.3.5
+
 PySpark Version: 3.5.0
+
 google-cloud-bigquery Version: 3.14.1
+
 google-cloud-bigquery-storage Version: 2.24.0
+
 Pandas GBQ Version: 0.20.0
 
 ## 1) The Business Problem

@@ -8,6 +8,12 @@ Below, the ETL Diagram showing the solution as a whole:
 
 The medallion architecture was adopted in order to have a data design pattern, maintaining organization and data quality to high standards.
 
+Hadoop Version: 3.3.5
+PySpark Version: 3.5.0
+google-cloud-bigquery Version: 3.14.1
+google-cloud-bigquery-storage Version: 2.24.0
+Pandas GBQ Version: 0.20.0
+
 ## 1) The Business Problem
 As stated before, we were given the challenge of extracting the data from the Iowa State database, load it in our cloud data warehouse using GCP (BigQuery), transform the data to meet business requirements and develop BI reports using Power BI. With this requested information reaching the business users of our team through clean data and insightful data visualization, we can thrive as a data driven organization. More precisely, the information requested by the team is related to:
 

@@ -31,7 +31,7 @@ As stated before, we were given the challenge of extracting the data from the Io
 
 
 ## 2) Architecture and Data Engineering
-In order to be cost effective, GCP BigQuery was chosen as the cloud DW. Also, following best practices, the medallion architecture was adopted. Below, we will describe in details each layer of the data architecture, explaining their objectives and pipeline (inputs and outputs).
+In order to be cost effective, GCP BigQuery was chosen as the cloud DW. Also, following best practices, the medallion architecture was adopted. Below, we will describe in details each layer of the data architecture, explaining their objectives and pipeline (inputs and outputs). The GBQ.json file used in the scripts contains our credentials to GCP BigQuery.
 
 ### 2.1) Bronze Layer: Raw Data
 This layer's data is ingested and built using the etl_bronze.py script. It receives the data from Iowa database using a SODA API adapted to only extract invoices made in the last 5 months (temporal threshold determined by the business) using a .json file which is converted to parquet using PySpark. Also, in this step of the ETL pipeline, we select the desired columns from the Iowa database:

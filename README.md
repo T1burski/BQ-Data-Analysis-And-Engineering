@@ -100,6 +100,11 @@ We have our DW set up and ready for business use. Power BI has a connection type
 
 Now, we develop the Power BI report, which will deliver, in a simple and fast way, the information our users requested, such as a time series of the revenue, the product categories with the highest revenues, the total revenue per Region and the stores that made the most sales regarding the number of invoices, also showing how much was the revenue per invoice, everything regarding the last 5 months of sales, not including the current month.
 
+Report link:
+
+https://app.powerbi.com/view?r=eyJrIjoiOTA3ZWY2MTctN2NiNi00N2U1LTk5M2YtYWJkYjdlOTM2ZDg5IiwidCI6ImUwODQ1MjFlLTUyODctNGFhMy04ZDEyLTRkY2EzNDY3NjIyZiJ9
+
+
 The users also requested a way to export to Excel the data in tabular format. So, the Power BI with the mentioned features was created, and below we can see screenshots of the pages:
 
 ![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/e33762bf-bd13-4629-998b-668ffbf92b12)

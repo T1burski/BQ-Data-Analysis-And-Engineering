@@ -106,8 +106,12 @@ The users also requested a way to export to Excel the data in tabular format. So
 
 ![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/cb9e37bd-d28e-40b5-9ecf-2be7686ef80f)
 
+In case the user wants to visualize the revenue in time considering a monthly granularity, they can use the drill-up functionality within the visual, resulting in:
+
+![image](https://github.com/T1burski/BQ-Data-Analysis-And-Engineering/assets/100734219/71ca0a44-916b-49d7-a5d5-5867a22a8ea5)
 
 
+## 6) Conclusion and Future Additions:
+This project had, as its main goal, to develop an ETL process showcasing the usage of API calls, PySpark, cloud service (GCP BigQuery) and Business Intelligence in order to solve a company's data and information necessity. There are more tools we could have used to guarantee even more robustness to the solution implemented, but for now, the simplicity we tackled solves nicely the company's needs.
 
-
-
+Now, some future additions we wish to implement in the near future: The usage of Github Actions or Apache Airflow to automatically run the data pipeline every month start, providing up do date information for the business without the need of our intervention. 

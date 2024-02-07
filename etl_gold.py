@@ -42,7 +42,7 @@ def gold_data_process(silver_data_history, silver_data_regions):
                                          .select(gold_data_history["*"], silver_data_regions["Region"])
 
     # Write data in parquet format
-    gold_data_history.write.parquet('gold_processed_data.parquet')
+    gold_data_history.write.parquet('gold_processed_data.parquet', mode="overwrite")
 
     # Stop the Spark session
     spark.stop()
